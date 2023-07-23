@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "ES6",
+            "dom"
+        ],
+        "target": "ES6",
+        "module": "CommonJS",
+        "declaration": true,
+        "declarationMap": true,
+        "strict": true,
+        "declarationDir": "lib/cjs",
+        "forceConsistentCasingInFileNames": true,
+        "strictFunctionTypes": true,
+        "strictBindCallApply": true,
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "node_modules",
+    ]
+}
