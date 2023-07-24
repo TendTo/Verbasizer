@@ -69,9 +69,7 @@ export class InputTextList {
   public loadNews(news: string[]) {
     this.clear();
     for (let i = 0; i < news.length; i++) {
-      if (i < this._inputTexts.length) {
-        this._inputTexts[i % this._inputTexts.length].value += news[i];
-      }
+      this._inputTexts[i % this._inputTexts.length].value += `${news[i]}\n\n`;
     }
   }
 
