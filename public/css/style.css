@@ -33,6 +33,19 @@ nav {
   );
 }
 
+nav > * {
+  max-height: 100%;
+}
+
+nav .github {
+  text-decoration: none;
+}
+
+nav .github img {
+  height: 40px;
+  width: 40px;
+}
+
 .input-text-list {
   width: 100%;
   padding: 0 10px;
@@ -48,6 +61,11 @@ nav {
   align-items: center;
   justify-content: center;
   padding: 10px;
+}
+
+.input-text-list .input-text-container textarea {
+  min-width: 150px;
+  width: 100%;
 }
 
 .button-list {
