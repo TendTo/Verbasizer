@@ -1,6 +1,6 @@
 # verbasizer
 
-Verbasizer website
+Verbasizer website. Heavily inspired by [Verbasizer](https://verbasizer.com/).
 
 ## 💻 Development
 
@@ -63,3 +63,8 @@ then all the versions of the package can be built with the command
 ```bash
 npm run build
 ```
+
+## Credits
+
+- [Verbasizer](https://verbasizer.com/) for the idea
+- [aesthetic-css](https://github.com/torch2424/aesthetic-css) for the Windows XP css theme
