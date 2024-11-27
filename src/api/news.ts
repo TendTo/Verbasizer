@@ -1,9 +1,9 @@
 export abstract class News {
-  public readonly herokuUrl: string = 'https://cors-anywhere.herokuapp.com';
+  public readonly herokuUrl: string = 'https://corsproxy.io';
 
   public abstract get url(): string;
   public get corsUrl(): string {
-    return `${this.herokuUrl}/${this.url}`;
+    return `${this.herokuUrl}/?${encodeURIComponent(this.url)}`;
   }
 
   protected defaultParser(xmlString: string): string[] {

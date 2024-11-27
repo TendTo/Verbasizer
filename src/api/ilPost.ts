@@ -1,7 +1,7 @@
 import { News } from './news';
 
 export class IlPostNews extends News {
-  public readonly url = 'https://www.ilpost.it/feed/';
+  public readonly url = 'https://www.ilpost.it/feed';
 
   public async getNews(): Promise<string[]> {
     let res;
