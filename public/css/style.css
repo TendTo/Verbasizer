@@ -7,6 +7,7 @@
 body {
   height: auto;
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 textarea {
@@ -46,12 +47,24 @@ nav .github img {
   width: 40px;
 }
 
+main {
+  display: grid;
+  grid-template-rows: auto 1fr 4fr auto;
+  grid-template-areas:
+    'inputs'
+    'buttons'
+    'text'
+    'about';
+  height: calc(100vh - 60px - 20px);
+  padding: 10px;
+}
+
 .input-text-list {
   width: 100%;
-  padding: 0 10px;
   font-size: 16px;
   display: grid;
-  grid-template: auto / repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  justify-content: center;
   gap: 10px;
 }
 
@@ -72,7 +85,7 @@ nav .github img {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -84,7 +97,6 @@ nav .github img {
 
 .output-container {
   width: 100%;
-  height: 100%;
   padding: 10px;
 }
 
@@ -96,12 +108,10 @@ nav .github img {
 
 .about-container {
   width: 100%;
-  height: 100%;
   padding: 10px;
 }
 
 .about-text-container {
   width: 100%;
-  height: 100%;
   padding: 10px;
 }

@@ -5,7 +5,7 @@
 .aesthetic-bg-gradient {
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background: linear-gradient(#c774e8, #94d0ff);
+  background: linear-gradient(#c774e8, #94d0ff) fixed;
 }
 
 .aesthetic-white-color {
