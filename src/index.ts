@@ -8,7 +8,7 @@ import {
   LoadNewsButton,
   ClearButton,
 } from './elements';
-import { IlPostNews } from './api';
+import { IlPostNews, AnsaNews } from './api';
 
 function main() {
   const inputTextList = new InputTextList();
@@ -24,7 +24,7 @@ function main() {
     navigator.clipboard.writeText(verbasizeOutput.text),
   );
   const loadNewsButton = new LoadNewsButton(async () => {
-    const ilPostNews = new IlPostNews();
+    const ilPostNews = new AnsaNews();
     inputTextList.loadNews(await ilPostNews.getNews());
   });
 }

@@ -1,9 +1,11 @@
 export abstract class News {
-  public readonly herokuUrl: string = 'https://corsproxy.io';
+  public readonly corsproxyUrl: string = 'https://corsproxy.io';
+  public readonly crossoriginUrl: string = 'https://crossorigin.me';
+  public readonly corsProxyUrl: string = 'https://cors-proxy.htmldriven.com/?url';
 
   public abstract get url(): string;
   public get corsUrl(): string {
-    return `${this.herokuUrl}/?${encodeURIComponent(this.url)}`;
+    return `${this.corsproxyUrl}/?url=${this.url}`;
   }
 
   protected defaultParser(xmlString: string): string[] {
@@ -17,6 +19,6 @@ export abstract class News {
 
   protected handleError(error: unknown) {
     console.error(error);
-    window.location.href = `${this.herokuUrl}/${this.url}`;
+    // window.location.href = `${this.herokuUrl}/${this.url}`;
   }
 }

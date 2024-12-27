@@ -55,7 +55,7 @@ export class GoogleNews extends News {
     console.log(this.url);
     let res;
     try {
-      res = await fetch(`${this.herokuUrl}/${this.url}`);
+      res = await fetch(`${this.crossoriginUrl}/${this.url}`);
     } catch (error) {
       this.handleError(error);
       return [];
