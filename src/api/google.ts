@@ -51,20 +51,7 @@ export class GoogleNews extends News {
     return encodeURI(feedUrl);
   }
 
-  public async getNews() {
-    console.log(this.url);
-    let res;
-    try {
-      res = await fetch(`${this.crossoriginUrl}/${this.url}`);
-    } catch (error) {
-      this.handleError(error);
-      return [];
-    }
-    if (res.status === 403) {
-      this.handleError(res);
-      return [];
-    }
-    const xml = await res.text();
-    return this.defaultParser(xml);
+  protected defaultParser(xmlString: string): string[] {
+    return super.defaultParser(xmlString).map((title) => title.replace(/ - [^-]+$/, ''));
   }
 }

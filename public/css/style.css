@@ -89,6 +89,10 @@ main {
   gap: 10px;
 }
 
+.mt-10 {
+  margin-top: 10px;
+}
+
 .button-list button {
   cursor: pointer;
   height: 40px;

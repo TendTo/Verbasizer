@@ -8,7 +8,8 @@ import {
   LoadNewsButton,
   ClearButton,
 } from './elements';
-import { IlPostNews, AnsaNews } from './api';
+import { IlPostNews, GoogleNews, AnsaNews, BbcNews, CnnNews } from './api';
+import type { News } from './api/news';
 
 function main() {
   const inputTextList = new InputTextList();
@@ -24,8 +25,27 @@ function main() {
     navigator.clipboard.writeText(verbasizeOutput.text),
   );
   const loadNewsButton = new LoadNewsButton(async () => {
-    const ilPostNews = new AnsaNews();
-    inputTextList.loadNews(await ilPostNews.getNews());
+    const select = document.getElementById('news-source-select') as HTMLSelectElement;
+    if (!select) return;
+    let newsSource: News = new GoogleNews(navigator.language || 'en-GB', 'any');
+    switch (select.value) {
+      case 'ilpost':
+        newsSource = new IlPostNews();
+        break;
+      case 'bbc':
+        newsSource = new BbcNews();
+        break;
+      case 'ansa':
+        newsSource = new AnsaNews();
+        break;
+      case 'cnn':
+        newsSource = new CnnNews();
+        break;
+      case 'google':
+      default:
+        break;
+    }
+    inputTextList.loadNews(await newsSource.getNews());
   });
 }
 

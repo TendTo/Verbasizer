@@ -3,6 +3,22 @@ export abstract class News {
   public readonly crossoriginUrl: string = 'https://crossorigin.me';
   public readonly corsProxyUrl: string = 'https://cors-proxy.htmldriven.com/?url';
 
+  public async getNews(): Promise<string[]> {
+    let res;
+    try {
+      res = await fetch(this.corsUrl);
+    } catch (error) {
+      this.handleError(error);
+      return [];
+    }
+    if (res.status === 403) {
+      this.handleError(res);
+      return [];
+    }
+    const xml = await res.text();
+    return this.defaultParser(xml);
+  }
+
   public abstract get url(): string;
   public get corsUrl(): string {
     return `${this.corsproxyUrl}/?url=${this.url}`;
